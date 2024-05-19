@@ -1,6 +1,7 @@
 package config
 
 import (
+    "net"
     "os"
     "strconv"
     "encoding/json"
@@ -30,9 +31,16 @@ func init() {
     if truststr == "" {
         Trust = []string{"127.0.0.1", "::1"}
     } else {
-        err = json.Unmarshal([]byte(truststr), &Trust)
+        var tmp []string
+        err = json.Unmarshal([]byte(truststr), &tmp)
         if err != nil {
             panic(err)
+        }
+        for _, now := range tmp {
+            ips, _ := net.LookupIP(now)
+            for _, ip := range ips {
+                Trust = append(Trust, ip.String())
+            }
         }
     }
     serverstr := os.Getenv("SERVER")

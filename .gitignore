@@ -2,4 +2,5 @@
 *.bak
 .env
 *.db
+*.swp
 test.go

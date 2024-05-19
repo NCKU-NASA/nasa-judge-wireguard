@@ -38,6 +38,7 @@ func init() {
         log.Panicln("Please install wireguard.")
     }
     database.GetDB().AutoMigrate(&Wireguard{})
+    Reload()
 }
 
 func getConfig(name string) (conf string, data map[string]string) {
