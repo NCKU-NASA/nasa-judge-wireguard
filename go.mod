@@ -5,7 +5,7 @@ go 1.20
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/GehirnInc/crypt v0.0.0-20230320061759-8cc1b52080c5 // indirect
-	github.com/NCKU-NASA/nasa-judge-lib v0.0.0-20240530215705-53c00ca6d018 // indirect
+	github.com/NCKU-NASA/nasa-judge-lib v0.0.0-20240530221544-c93f04dee42e // indirect
 	github.com/bytedance/sonic v1.11.3 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.1 // indirect
