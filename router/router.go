@@ -28,6 +28,10 @@ func update(c *gin.Context) {
         Username: userdata.Username,
     }
     userdata.Fix()
+    if userdata.Username == "" {
+        errutil.AbortAndStatus(c, 400)
+        return
+    }
     userdata, err = user.GetUser(userdata)
     if err != nil {
         errutil.AbortAndError(c, &errutil.Err{
@@ -46,6 +50,10 @@ func get(c *gin.Context) {
         Username: c.Query("username"),
     }
     userdata.Fix()
+    if userdata.Username == "" {
+        errutil.AbortAndStatus(c, 400)
+        return
+    }
     userdata, err := user.GetUser(userdata)
     if err != nil {
         errutil.AbortAndError(c, &errutil.Err{
